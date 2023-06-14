@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Zbierak - Plemiona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link id="favicon" rel="shortcut icon" href="https://dspl.innogamescdn.com/asset/935e323b/graphic/favicon.png">
+    <style>
+        html{
+            background-color: #e7e6d6;
+            font-family: 'Inter', sans-serif;
+        }
+        body{
+            padding:100px
+        }
+        input, select{
+            width: 60px;
+            padding: 5px;
+            border-width: 1px;
+            border-radius: 0.5rem;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+        select{
+            width: 165px;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 60px;
+        }
+        h3{
+            text-align: center;
+        }
+        label{
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        hr{
+            width:100%
+        }
+        .inputs{
+            display: flex;
+            flex-direction: column;
+        }
+        .grid2{
+            display: flex;
+            gap: 150px;
+        }
+        .mainGrid{
+            display: flex;
+            gap: 50px;
+        }
+        .col{
+            flex: 1;
+        }
+        .col-6{
+            flex: 6;
+        }
+        .card {
+            padding: 20px;
+            background-color: #dbdac9;
+            border-radius: 1rem;
+            box-shadow: 0px 5px 20px -9px rgba(66, 68, 90, 1);
+        }
+        .icon{
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+        .inputs div{
+            display: flex;
+            align-items: center;
+        }
+        .tribalWarsIcon{
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            margin: auto 2px auto 0;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            vertical-align: -4px;
+            background: transparent scroll top left no-repeat;
+            background-image: url(https://dspl.innogamescdn.com/asset/935e323b/graphic/icons/header.png);
+        }
+        .time{
+            background-position: -285px 0px;
+        }
+        .inputs .tribalWarsIcon{
+            margin-left: 20px;
+            margin-right: 5px;
+        }
+        .resText{
+            width: 70px;
+        }
+        .scavDetails{
+            display: flex;
+            flex-direction: column;
+            gap:5px
+        }
+        @media screen and (max-width: 1500px) {
+            body{
+                padding: 50px;
+            }
+            .mainGrid{
+                gap: 15px;
+            }
+            .grid2{
+                gap: 20px;
+            }
+
+        }
+        @media screen and (max-width: 800px) {
+            h1{
+                font-size: 40px;
+            }
+            body{
+                padding: 10px;
+            }
+            .mainGrid{
+                gap: 15px;
+                flex-direction: column;
+               
+            }
+            .grid2{
+                flex-direction: column;
+                gap: 20px;
+            }
+            .col{
+                flex-direction: column;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <h1>V-Zbierak</h1>
+    <div class="grid2">
+        <div class="card">
+            <h2>Wprowadź jednostki</h2>
+            <div class="inputs col" style="align-items: center;">
+                <label for="pikeman">Pikinierzy</label>
+                <div>
+                    <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_spear.png" />
+                    <input name="pikeman" id="pikeman" type="number" min="0" oninput="calculate()"/>
+                    <span class="tribalWarsIcon"></span>
+                    <span class="resText" id="pikemanRes">0</span>
+                </div>
+                <label for="swordman">Miecznicy</label>
+                <div>
+                    <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_sword.png" />
+                    <input name="swordman" id="swordman" type="number" min="0" oninput="calculate()"  />
+                    <span class="tribalWarsIcon"></span>
+                    <span class="resText" id="swordmanRes">0</span>
+                </div>
+                <label for="axeman">Topornicy</label>
+                <div>
+                    <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_axe.png" />
+                    <input name="axeman" id="axeman" type="number" min="0" oninput="calculate()" />
+                    <span class="tribalWarsIcon"></span>
+                    <span class="resText" id="axemanRes">0</span>
+                </div>
+                <label for="lightCav">Lekka kawaleria</label>
+                <div>
+                    <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_light.png" />
+                    <input name="lightCav" id="lightCav" type="number" min="0" oninput="calculate()" />
+                    <span class="tribalWarsIcon"></span>
+                    <span class="resText" id="lightCavRes">0</span>
+                </div>
+                <label for="heavyCav">Ciężka kawaleria</label>
+                <div>
+                    <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_heavy.png" />
+                    <input name="heavyCav" id="heavyCav" type="number" min="0" oninput="calculate()" />
+                    <span class="tribalWarsIcon"></span>
+                    <span class="resText" id="heavyCavRes">0</span>
+                </div>
+                <label for="discoverLvl">Max poz. zbieractwa</label>
+                <div>
+                    <select name="discoverLvl" id="discoverLvl" onchange="setDiscoverLvl()">
+                        <option value="1">Ambitni amatorzy</option>
+                        <option value="2">Cierpliwi ciułacze</option>
+                        <option value="3" selected="selected">Zawodowi zbieracze</option>
+                        <option value="4">Specjaliści surowcowi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mainGrid">
+                <div class="col card">
+                    <h3>Ambitni amatorzy</h3>
+                    <div id="scav1">---</div>
+                </div>
+                <div class="col card">
+                    <h3>Cierpliwi ciułacze</h3>
+                    <div id="scav2">---</div>
+                </div>
+                <div class="col card">
+                    <h3>Zawodowi zbieracze</h3>
+                    <div id="scav3">---</div>
+                </div>
+                <div class="col card">
+                    <h3>Specjaliści surowcowi</h3>
+                    <div id="scav4">---</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const pikemanInput = document.getElementById('pikeman');
+        const swordmanInput = document.getElementById('swordman');
+        const axemanInput = document.getElementById('axeman');
+        const lightCavInput = document.getElementById('lightCav');
+        const heavyCavInput = document.getElementById('heavyCav');
+        let discoverLvl = 3;
+        let proportions = [[1], [2.5,1], [5,2,1], [7.5,3,1.5,1]]
+
+        const base = {
+            duration_exponent: 0.45,
+            duration_initial_seconds: 1800,
+            duration_factor: 1,
+            load:
+            {
+                pikeman: 25,
+                swordman: 15,
+                axeman : 10,
+                lightCav: 80,
+                heavyCav: 50,
+            },
+            lootFactors: [0.1,0.25,0.5,0.75]
+        }
+
+        let setDiscoverLvl = () => {
+            discoverLvl = document.getElementById('discoverLvl').value*1;
+            calculate();
+        }
+
+        let calculate = () => {
+
+            clearScavInfo();
+            calculateEachLoad();
+            
+            let fullLoad = 
+                base.load.pikeman   *   pikemanInput.value  +
+                base.load.swordman  *   swordmanInput.value +
+                base.load.axeman    *   axemanInput.value   +
+                base.load.lightCav  *   lightCavInput.value +
+                base.load.heavyCav  *   heavyCavInput.value ;
+
+            let target = [];
+            //console.log(fullLoad);
+            switch(discoverLvl){
+                case 1:
+                    target = [fullLoad]
+                    break;
+                case 2:
+                    target = [(fullLoad/3.5)*2.5,(fullLoad/3.5)*1]
+                    break;
+                case 3:
+                    target = [(fullLoad/8)*5,(fullLoad/8)*2,(fullLoad/8)*1]
+                    break;
+                case 4: 
+                    target = [(fullLoad/13)*7.5,(fullLoad/13)*3,(fullLoad/13)*1.5,(fullLoad/13)*1]
+                    break;
+                default:
+                    target = [fullLoad]
+                    break;
+            }
+
+            const units = optimalValue(target,[pikemanInput.value,swordmanInput.value,axemanInput.value,lightCavInput.value,heavyCavInput.value]);
+
+            let scavengeInfo = [
+                ((units[0].length>0) ? 
+                {
+                    timeInSec: calcDurationSeconds(units[0].reduce((partialSum, a) => partialSum + a, 0),0.1),
+                    units: units[0],
+                    load: units[0].reduce((partialSum, a) => partialSum + a, 0)*0.1
+                } : {}),
+                ((units[1].length>0) ? 
+                {
+                    timeInSec: calcDurationSeconds(units[1].reduce((partialSum, a) => partialSum + a, 0),0.25),
+                    units: units[1],
+                    load: units[1].reduce((partialSum, a) => partialSum + a, 0)*0.25
+                } : {}),
+                ((units[2].length>0) ? 
+                {
+                    timeInSec: calcDurationSeconds(units[2].reduce((partialSum, a) => partialSum + a, 0),0.5),
+                    units: units[2],
+                    load: units[2].reduce((partialSum, a) => partialSum + a, 0)*0.5
+                } : {}),
+                ((units[3].length>0) ? 
+                {
+                    timeInSec: calcDurationSeconds(units[3].reduce((partialSum, a) => partialSum + a, 0),0.75),
+                    units: units[3],
+                    load: units[3].reduce((partialSum, a) => partialSum + a, 0)*0.75
+                } : {}),
+            ]
+
+            displayData(scavengeInfo);
+        }
+
+        let clearScavInfo = () => {
+            for(let i = 0; i<4; i++){document.getElementById('scav'+(i+1)).innerHTML =`---` }
+        }
+
+        let displayData = (scavengeInfo) => {
+            for(let i = 0; i<4; i++){
+                if(scavengeInfo[i].load){
+                document.getElementById('scav'+(i+1)).innerHTML =`
+                <div class="scavDetails">
+                    <div>
+                        <span class="tribalWarsIcon time" style="margin-right:10px"></span> <span class="resText" id="heavyCavRes">${secondsToDhms(scavengeInfo[i].timeInSec)}</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <span class="tribalWarsIcon" style="margin-right:10px"></span> <span class="resText" id="heavyCavRes">${Math.floor(scavengeInfo[i].load)}</span>
+                    </div>
+                    <hr>
+                    ${weightToUnits(scavengeInfo[i].units)} 
+                </div>`
+                }   
+            }
+        }
+
+        let optimalValue = (targets,units) => {
+            const weights = [base.load.pikeman, base.load.swordman, base.load.axeman, base.load.lightCav, base.load.heavyCav];
+            let availableUnits = [];
+            let usedUnits = [[],[],[],[]];
+            for(let i = 0; i < 5; i++){
+                while (units[i] > 0){
+                    availableUnits.push(weights[i])
+                    units[i]--;
+                }
+            }
+            const results = [];
+            targets.map((target, index) => {
+                let i = availableUnits.length -2;
+                do{
+                    target -= availableUnits[i];
+                    usedUnits[index].push(availableUnits.pop());
+                    i--;
+                }while(target > base.load.lightCav)
+            })
+            let index = 0;
+            for(let i = availableUnits.length-1; i >= 0; i--){
+                usedUnits[index].push(availableUnits.pop());
+                index++;
+                if(index == discoverLvl)index = 0;
+            }
+            return usedUnits;
+        };
+
+        let calcDurationSeconds = (t, lootFactor) => {
+            return Math.round((Math.pow(t * getLootPercent(lootFactor) * t * lootFactor, base.duration_exponent) + base.duration_initial_seconds) * base.duration_factor)
+        }
+
+        let getLootPercent = (lootFactor) => {
+            return 100 * lootFactor
+        }
+
+        let weightToUnits = (weight) => {
+            let units = [0,0,0,0,0]
+            if(weight){
+            weight.map((unit, index) => {
+                switch (unit){
+                    case 25:
+                        units[0]++;
+                        break;
+                    case 15:
+                        units[1]++;
+                        break;
+                    case 10:
+                        units[2]++;
+                        break;
+                    case 80:
+                        units[3]++;
+                        break;
+                    case 50:
+                        units[4]++;
+                        break;
+                }
+            })
+            return (
+                ((units[0] > 0) ? ` <div>
+                                        <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_spear.png" /> <span class="resText">${units[0]}</span>
+                                    </div>` 
+                : "") + 
+                ((units[1] > 0) ? ` <div>
+                                        <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_sword.png" /> <span class="resText">${units[1]}</span>
+                                    </div>` 
+                : "") +
+                ((units[2] > 0) ? ` <div>
+                                        <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_axe.png" /> <span class="resText">${units[2]}</span>
+                                    </div>` 
+                : "") +
+                ((units[3] > 0) ? ` <div>
+                                        <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_light.png" /> <span class="resText">${units[3]}</span>
+                                    </div>` 
+                : "") + 
+                ((units[4] > 0) ? ` <div>
+                                        <img class="icon" src="https://dspl.innogamescdn.com/asset/935e323b/graphic/unit/unit_heavy.png" /> <span class="resText">${units[4]}</span>
+                                    </div>` 
+                : "")
+                );
+            }else{
+                return "";
+            }
+        }
+
+        let calculateEachLoad = () => {
+            if(pikemanInput.value){
+                document.getElementById('pikemanRes').innerText = pikemanInput.value*base.load.pikeman;
+            }else{
+                document.getElementById('pikemanRes').innerText = 0;
+            }
+            if(swordmanInput.value){
+                document.getElementById('swordmanRes').innerText = swordmanInput.value*base.load.swordman;
+            }else{
+                document.getElementById('swordmanRes').innerText = 0;
+            }
+            if(axemanInput.value){
+                document.getElementById('axemanRes').innerText = axemanInput.value*base.load.axeman;
+            }else{
+                document.getElementById('axemanRes').innerText = 0;
+            }
+            if(lightCavInput.value){
+                document.getElementById('lightCavRes').innerText = lightCavInput.value*base.load.lightCav;
+            }else{
+                document.getElementById('lightCavRes').innerText = 0;
+            }
+            if(heavyCavInput.value){
+                document.getElementById('heavyCavRes').innerText = heavyCavInput.value*base.load.heavyCav;
+            }else{
+                document.getElementById('heavyCavRes').innerText = 0;
+            }
+        }
+
+        function secondsToDhms(seconds) {
+            seconds = Number(seconds);
+            var d = Math.floor(seconds / (3600*24));
+            var h = Math.floor(seconds % (3600*24) / 3600);
+            var m = Math.floor(seconds % 3600 / 60);
+            var s = Math.floor(seconds % 60);
+
+            var dDisplay = d > 0 ? d + " d, " : "";
+            var hDisplay = h > 0 ? h + " h, "  : "";
+            var mDisplay = m > 0 ? m + " min, " : "";
+            var sDisplay = s > 0 ? s + " sec." : "";
+            return dDisplay + hDisplay + mDisplay + sDisplay;
+        }
+
+    </script>
+</body>
+</html>
